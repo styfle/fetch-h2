@@ -9,6 +9,7 @@ declare const disconnect: (url: string) => Promise<void>;
 declare const disconnectAll: () => Promise<void>;
 declare const onPush: (handler: PushHandler) => void;
 declare function context(opts?: Partial<ContextOptions>): {
+    setup: (opts: ContextOptions) => void;
     fetch: (input: string | Request, init?: Partial<FetchInit>) => Promise<Response>;
     disconnect: (url: string) => Promise<void>;
     disconnectAll: () => Promise<void>;

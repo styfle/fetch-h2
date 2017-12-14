@@ -15,12 +15,14 @@ export declare class Context {
     private _accept;
     private _cookieJar;
     private _pushHandler;
+    private _decoders;
     constructor(opts?: Partial<ContextOptions>);
+    setup(opts?: Partial<ContextOptions>): void;
     onPush(pushHandler: PushHandler): void;
     private handlePush(origin, pushedStream, requestHeaders);
     private connect(origin, options?);
     private getOrCreate(origin, options, created?);
-    private get(url, options?);
+    private get(url);
     private handleDisconnect(sessionItem);
     fetch(input: string | Request, init?: Partial<FetchInit>): Promise<Response>;
     disconnect(url: string): Promise<void>;
