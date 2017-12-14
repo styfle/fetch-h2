@@ -48,7 +48,9 @@ class Context {
         this._cookieJar = 'cookieJar' in opts
             ? opts.cookieJar
             : new cookie_jar_1.CookieJar();
-        this._decoders = [];
+        this._decoders = 'decoders' in opts
+            ? opts.decoders || []
+            : [];
     }
     onPush(pushHandler) {
         this._pushHandler = pushHandler;

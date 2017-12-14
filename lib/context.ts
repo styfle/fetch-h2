@@ -51,6 +51,7 @@ export interface ContextOptions
 	overwriteUserAgent: boolean;
 	accept: string;
 	cookieJar: CookieJar;
+	decoders: ReadonlyArray< Decoder >;
 }
 
 interface SessionItem
@@ -85,7 +86,7 @@ export class Context
 	private _accept: string;
 	private _cookieJar: CookieJar;
 	private _pushHandler: PushHandler;
-	private _decoders: Array< Decoder >;
+	private _decoders: ReadonlyArray< Decoder >;
 
 	constructor( opts?: Partial< ContextOptions > )
 	{
@@ -117,7 +118,9 @@ export class Context
 			? opts.cookieJar
 			: new CookieJar( );
 
-		this._decoders = [ ];
+		this._decoders = 'decoders' in opts
+			? opts.decoders || [ ]
+			: [ ];
 	}
 
 	public onPush( pushHandler: PushHandler )

@@ -9,6 +9,8 @@ import {
 	TimeoutError,
 	FetchInit,
 	OnTrailers,
+	DecodeFunction,
+	Decoder,
 } from './lib/core'
 import { Context, ContextOptions, PushHandler } from './lib/context'
 
@@ -44,6 +46,7 @@ function context( opts?: Partial< ContextOptions > )
 }
 
 export {
+	setup,
 	context,
 	fetch,
 	disconnect,
@@ -61,4 +64,7 @@ export {
 	AbortError,
 	TimeoutError,
 	OnTrailers,
+	ContextOptions,
+	DecodeFunction,
+	Decoder,
 }

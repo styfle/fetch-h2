@@ -17,6 +17,7 @@ exports.TimeoutError = core_1.TimeoutError;
 const context_1 = require("./lib/context");
 const defaultContext = new context_1.Context();
 const setup = (opts) => defaultContext.setup(opts);
+exports.setup = setup;
 const fetch = (input, init) => defaultContext.fetch(input, init);
 exports.fetch = fetch;
 const disconnect = (url) => defaultContext.disconnect(url);

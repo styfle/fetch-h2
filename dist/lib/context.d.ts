@@ -1,4 +1,4 @@
-import { FetchInit } from './core';
+import { FetchInit, Decoder } from './core';
 import { Request } from './request';
 import { Response } from './response';
 import { CookieJar } from './cookie-jar';
@@ -7,6 +7,7 @@ export interface ContextOptions {
     overwriteUserAgent: boolean;
     accept: string;
     cookieJar: CookieJar;
+    decoders: ReadonlyArray<Decoder>;
 }
 export declare type PushHandler = (origin: string, request: Request, getResponse: () => Promise<Response>) => void;
 export declare class Context {
